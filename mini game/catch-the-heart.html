@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Catch The Heart 💙</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0f172a;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    #game {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #score {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 18px;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      top: -40px;
+      font-size: 32px;
+      cursor: pointer;
+      animation: fall 4s linear forwards;
+      user-select: none;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+
+    /* POPUP PESAN */
+    #messageBox, #endingBox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 25px 30px;
+      border-radius: 18px;
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.6;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #3b82f6;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="game"></div>
+  <div id="score">💙 Score: 0</div>
+
+  <!-- PESAN -->
+  <div id="messageBox">
+    <div class="box">
+      <p>
+        kadang yang jatuh bukan hati,<br>
+        tapi kenangan.<br><br>
+        makasih ya,<br>
+        semoga kamu bahagia.
+      </p>
+      <button onclick="goEnding()">lanjut 💙</button>
+    </div>
+  </div>
+
+  <!-- ENDING -->
+  <div id="endingBox">
+    <div class="box">
+      <p>
+        end game.<br><br>
+        kali ini aku belajar satu hal:<br>
+        <b>ikhlas.</b> 💙
+      </p>
+    </div>
+  </div>
+
+  <script>
+const game = document.getElementById("game");
+const scoreEl = document.getElementById("score");
+const messageBox = document.getElementById("messageBox");
+const endingBox = document.getElementById("endingBox");
+
+let score = 0;
+let gameActive = true;
+
+function spawnHeart() {
+  if (!gameActive) return;
+
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💙";
+
+  heart.style.left = Math.random() * 90 + "vw";
+  heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+  heart.style.pointerEvents = "auto"; // 🔑 penting buat HP
+
+  const catchHeart = () => {
+    if (!gameActive) return;
+
+    score++;
+    scoreEl.innerHTML = "💙 Score: " + score;
+    heart.remove();
+
+    if (score === 10) {
+      gameActive = false;
+      messageBox.style.display = "flex";
+    }
+  };
+
+  // ✅ SUPPORT HP + PC
+  heart.addEventListener("click", catchHeart);
+  heart.addEventListener("touchstart", catchHeart);
+
+  game.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}
+
+function goEnding() {
+  messageBox.style.display = "none";
+  endingBox.style.display = "flex";
+}
+
+setInterval(spawnHeart, 800);
+</script>
+
+</body>
+</html>
