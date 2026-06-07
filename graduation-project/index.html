@@ -17,6 +17,9 @@
     </button>
 
 </section>
+<audio autoplay loop controls>
+    <source src="music/graduation.mp3">
+</audio>
 
 <section id="gallery" class="gallery">
 
@@ -34,9 +37,11 @@
 </section>
 
 <section class="letter">
+    <div class="envelope" onclick="openLetter()">
 
     <h2>Untukmu 💌</h2>
-
+</div>
+<div class="letter-contet" id="LetterContet">
     <p>
         Selamat atas kelulusanmu.
 
@@ -52,6 +57,7 @@
 
         Aku bangga padamu.
     </p>
+</div>
 
 </section>
 
@@ -65,6 +71,9 @@
 
 </section>
 
+<button id="topBtn" onclick="scrollTOTop()">
+    ⬆️
+</button>
 <script src="script.js"></script>
 
 </body></html>
