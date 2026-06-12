@@ -9,22 +9,58 @@ document
 .play();
 }
 
-function openLetter(){
+const message = `
+Selamat atas kelulusanmu.
 
-    const envelope =
-    document.getElementById("envelope");
+Tidak semua perjalanan berjalan mudah,
+tetapi kamu berhasil melewati semuanya.
+
+Terima kasih karena sudah bertahan,
+sudah berjuang,
+dan sudah menjadi dirimu sendiri.
+
+Hari ini bukan akhir,
+melainkan awal dari petualangan baru.
+
+Aku bangga padamu ❤️
+`;
+
+let opened = false;
+
+function openLetter(){
 
     const letter =
     document.getElementById("letterContent");
 
-    envelope.classList.toggle("open");
-
-    if(envelope.classList.contains("open")){
-        letter.style.display = "block";
-    }else{
+    if(opened){
         letter.style.display = "none";
+        document.getElementById("typingText").innerHTML="";
+        opened=false;
+        return;
     }
 
+    letter.style.display = "block";
+
+    const text =
+    document.getElementById("typingText");
+
+    text.innerHTML="";
+
+    let i=0;
+
+    const typing = setInterval(()=>{
+
+        text.innerHTML += message.charAt(i);
+
+        i++;
+
+        if(i >= message.length){
+            clearInterval(typing);
+        }
+
+    },40);
+
+    opened=true;
 }
 
 function scrollToTop(){
