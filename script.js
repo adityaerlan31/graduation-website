@@ -4,6 +4,9 @@ document
 .scrollIntoView({
 behavior:"smooth"
 });
+document
+.getElementById("bgMusic")
+.play();
 }
 
 function openLetter(){

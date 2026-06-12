@@ -67,9 +67,10 @@ object-fit:cover;
 border-radius:15px;
 transition: 0.4s;
 cursor: pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 .photos img:hover{
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .letter{
@@ -107,7 +108,7 @@ margin-bottom:20px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.letter-content{
+.letter-contet{
     display:none;
     margin-top:30px;
     animation:fadeIn 1s;
@@ -128,7 +129,15 @@ margin-bottom:20px;
     position:fixed;
     right:20px;
     bottom:20px;
+    border: none;
     border-radius:50%;
-    width:55px;
-    height:55px;
+    width:60px;
+    height:60px;
+    background: #ff8fb1;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999;
 }
