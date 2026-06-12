@@ -12,6 +12,10 @@ document
 function openLetter(){
 
     document
+    .getElementById("envelope")
+    .classList.add("open");
+
+    document
     .getElementById("letterContent")
     .style.display = "block";
 
