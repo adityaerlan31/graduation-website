@@ -11,13 +11,19 @@ document
 
 function openLetter(){
 
-    document
-    .getElementById("envelope")
-    .classList.add("open");
+    const envelope =
+    document.getElementById("envelope");
 
-    document
-    .getElementById("letterContent")
-    .style.display = "block";
+    const letter =
+    document.getElementById("letterContent");
+
+    envelope.classList.toggle("open");
+
+    if(envelope.classList.contains("open")){
+        letter.style.display = "block";
+    }else{
+        letter.style.display = "none";
+    }
 
 }
 
