@@ -120,3 +120,29 @@ window.addEventListener(
 );
 
 revealOnScroll();
+
+function toggleMusic(){
+
+    const music =
+    document.getElementById("bgMusic");
+
+    const button =
+    document.getElementById("musicBtn");
+
+    if(music.paused){
+
+        music.play();
+
+        button.innerHTML =
+        "🎵 Musik ON";
+
+    }else{
+
+        music.pause();
+
+        button.innerHTML =
+        "🔇 Musik OFF";
+
+    }
+
+}
