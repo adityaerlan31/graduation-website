@@ -25,3 +25,26 @@ function scrollToTop(){
     });
 
 }
+
+const photos = document.querySelectorAll(".photos img");
+
+photos.forEach(photo => {
+
+    photo.addEventListener("click", () => {
+
+        document.getElementById("lightbox")
+        .style.display = "flex";
+
+        document.getElementById("lightbox-img")
+        .src = photo.src;
+
+    });
+
+});
+
+function closeLightbox(){
+
+    document.getElementById("lightbox")
+    .style.display = "none";
+
+}
