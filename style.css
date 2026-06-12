@@ -158,22 +158,15 @@ margin-bottom:20px;
     align-items:center;
 
     z-index:9999;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
 }
 
 .lightbox img{
+    animation:zoomIn 0.3s;
     max-width:90%;
     max-height:90%;
     border-radius:20px;
-}
-
-.close{
-    position:absolute;
-    top:20px;
-    right:30px;
-
-    color:white;
-    font-size:40px;
-    cursor:pointer;
 }
 
 .envelope{
@@ -284,4 +277,18 @@ margin-bottom:20px;
 .reveal.active{
     opacity:1;
     transform:translateY(0);
+}
+
+@keyframes zoomIn{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
 }
