@@ -146,3 +146,20 @@ function toggleMusic(){
     }
 
 }
+
+function openGift(){
+
+    const screen =
+    document.getElementById(
+        "welcomeScreen"
+    );
+
+    screen.style.opacity = "0";
+
+    setTimeout(() => {
+
+        screen.style.display = "none";
+
+    },500);
+
+}
